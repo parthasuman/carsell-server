@@ -44,7 +44,7 @@ async function run() {
     const usersCollection = client.db("carsell").collection("users");
     const addCarsCollection = client.db("carsell").collection("cars");
 
-    app.get("/category", verifyJWT, async (req, res) => {
+    app.get("/category", async (req, res) => {
       const query = {};
       const option = await categoryData.find(query).toArray();
       res.send(option);

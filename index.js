@@ -116,6 +116,7 @@ async function run() {
       res.send({ isUser: user?.role === "user" });
     });
 
+    // jwt add
     app.get("/jwt", async (req, res) => {
       const email = req.query.email;
       const query = { email: email };

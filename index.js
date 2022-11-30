@@ -171,6 +171,7 @@ async function run() {
       res.send(result);
     });
 
+    // ads collection
     app.get("/ads", async (req, res) => {
       const ads = await addCarsCollection.find({ advertised: true }).toArray();
       res.send(ads);

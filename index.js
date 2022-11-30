@@ -4,6 +4,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+// server port link
 const port = process.env.PORT || 5000;
 
 const app = express();
@@ -43,7 +44,7 @@ async function run() {
     const usersCollection = client.db("carsell").collection("users");
     const addCarsCollection = client.db("carsell").collection("cars");
 
-    app.get("/category", async (req, res) => {
+    app.get("/category", verifyJWT, async (req, res) => {
       const query = {};
       const option = await categoryData.find(query).toArray();
       res.send(option);

@@ -58,6 +58,7 @@ async function run() {
       res.send(carData);
     });
 
+    // bookings collection
     app.get("/bookings", async (req, res) => {
       const email = req.query.email;
       const query = { email: email };
